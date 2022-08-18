@@ -1,0 +1,34 @@
+{% if resume.publications|length %}
+    <section id="publications">
+        <h2>Publications</h2>
+        {% for publication in resume.publications %}
+            <div class="item">
+                {% if publication.name %}
+                    <div class="name">
+                        {{ publication.name }}
+                    </div>
+                {% endif %}
+                {% if publication.publisher %}
+                    <div class="publisher">
+                        {{ publication.publisher }}
+                    </div>
+                {% endif %}
+                {% if publication.releaseDate %}
+                    <div class="releaseDate">
+                        {{ publication.releaseDate }}
+                    </div>
+                {% endif %}
+                {% if publication.website %}
+                    <div class="website">
+                        <a href="{{ publication.website }}">Link</a>
+                    </div>
+                {% endif %}
+                {% if publication.summary %}
+                    <div class="summary">
+                        <p>{{ publication.summary }}</p>
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </section>
+{% endif %}

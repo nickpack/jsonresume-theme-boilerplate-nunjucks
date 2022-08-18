@@ -1,0 +1,19 @@
+{% if resume.references|length %}
+    <section id="references">
+        <h2>References</h2>
+        {% for reference in resume.references %}
+            <div class="item">
+                {% if reference.reference %}
+                    <blockquote class="reference">
+                        {{ reference.reference|escape|safe|nl2br }}
+                    </blockquote>
+                {% endif %}
+                {% if reference.name %}
+                    <div class="name">
+                        — {{ reference.name }}
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </section>
+{% endif %}

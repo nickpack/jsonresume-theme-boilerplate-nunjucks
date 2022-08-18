@@ -1,0 +1,53 @@
+{% if resume.education|length %}
+{% set education = resume.education %}
+<section id="education">
+	<h2>Education</h2>
+	{% for edu in education %}
+	<div class="item">
+		<div class="date">
+			{% if edu.startDate %}
+			<span class="startDate">
+				{{edu.startDate}}
+			</span>
+			{% endif %}
+			{% if edu.endDate %}
+			<span class="endDate">
+				- {{edu.endDate}}
+			</span>
+			{% else %}
+			<span class="endDate">
+				- Present
+			</span>
+			{% endif %}
+		</div>
+		{% if edu.institution %}
+		<div class="institution">
+			{{edu.institution}}
+		</div>
+		{% endif %}
+		{% if edu.area%}
+		<div class="area">
+			{{edu.area}}
+		</div>
+		{% endif %}
+		{% if edu.studyType %}
+		<div class="studyType">
+			{{edu.studyType}}
+		</div>
+		{% endif %}
+		{% if edu.gpa %}
+		<div class="gpa">
+			GPA: {{edu.gpa}}
+		</div>
+		{% endif %}
+		{% if edu.courses|length %}
+		<ul class="courses">
+			{% for course in edu.courses %}
+			<li>{{course}}</li>
+			{% endfor %}
+		</ul>
+		{% endif %}
+	</div>
+	{% endfor %}
+</section>
+{% endif %}

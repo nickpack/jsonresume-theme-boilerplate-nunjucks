@@ -1,14 +1,19 @@
 {
-  "name": "jsonresume-theme-boilerplate",
-  "version": "0.1.2",
-  "description": "Boilerplate theme for JSON Resume",
-  "author": "Mattias Erming",
+  "name": "jsonresume-theme-boilerplate-nunjucks",
+  "version": "0.1.0",
+  "description": "Boilerplate theme for JSON Resume based on Nunjucks",
+  "author": "Nick Pack",
   "repository": {
     "type": "git",
-    "url": "https://github.com/erming/jsonresume-theme-boilerplate"
+    "url": "https://github.com/nickpack/jsonresume-theme-boilerplate-nunjucks"
   },
   "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.22.0",
+    "eslint-config-airbnb-base": "^15.0.0"
+  },
   "dependencies": {
-    "handlebars": "^2.0.0-alpha.4"
+    "nunjucks": "^3.2.3",
+    "nunjucks-date-filter": "^0.1.1"
   }
 }

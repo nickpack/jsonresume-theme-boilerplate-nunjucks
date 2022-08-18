@@ -1,0 +1,19 @@
+{% if resume.languages|length %}
+    <section id="languages">
+        <h2>Languages</h2>
+        {% for language in resume.languages %}
+            <div class="item">
+                {% if language.language %}
+                    <div class="language">
+                        {{ language.language }}
+                    </div>
+                {% endif %}
+                {% if language.fluency %}
+                    <div class="fluency">
+                        <em>{{ language.fluency }}</em>
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </section>
+{% endif %}

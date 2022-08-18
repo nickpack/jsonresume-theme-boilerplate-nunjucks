@@ -1,0 +1,46 @@
+{% if resume.work|length %}
+    <section id="work">
+        <h2>Work</h2>
+        {% for job in resume.work %}
+            <div class="item">
+                {% if job.company %}
+                <h3 class="name">
+                    {{ job.company }}
+                </h3>
+                {% endif %}
+                <div class="date">
+                    {% if job.startDate %}
+                        <span class="startDate">{{ job.startDate| date("MMMM YYYY") }}</span>
+                    {% endif %}
+                    {% if job.endDate %}
+                        <span class="endDate">- {{ job.endDate| date("MMMM YYYY") }} ({{ job.endDate|date("from", job.startDate, true) }})</span>
+                    {% else %}
+                        <span class="endDate">- Present ({{ date|date("from", job.startDate, true) }})</span>
+                    {% endif %}
+                </div>
+                {% if job.position %}
+                    <div class="position">
+                        {{ job.position }}
+                    </div>
+                {% endif %}
+                {% if job.website %}
+                    <div class="website">
+                        <a href="{{ job.website }}">{{ job.website }}</a>
+                    </div>
+                {% endif %}
+                {% if job.summary %}
+                    <div class="summary">
+                        <p>{{ job.summary }}</p>
+                    </div>
+                {% endif %}
+                {% if job.highlights|length %}
+                    <ul class="highlights">
+                        {% for highlight in job.highlights %}
+                            <li>{{ highlight }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </section>
+{% endif %}

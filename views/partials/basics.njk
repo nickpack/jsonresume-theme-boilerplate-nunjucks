@@ -1,0 +1,89 @@
+{% set basics = resume.basics %}
+<h1>{{ basics.name }}</h1>
+<h2>{{ basics.label }}</h2>
+<section id="basics">
+    <div class="contact">
+        {% if basics.website %}
+            <div class="website">
+                <strong>Website</strong>
+                <a href="{{ basics.website }}">{{ basics.website }}</a>
+            </div>
+        {% endif %}
+        {% if basics.email %}
+            <div class="email">
+                <strong>Email</strong>
+                <a href="mailto:{{ basics.email }}">{{ basics.email }}</a>
+            </div>
+        {% endif %}
+        {% if basics.phone %}
+            <div class="phone">
+                <strong>Phone</strong>
+                <a href="tel:{{ basics.phone }}">{{ basics.phone }}</a>
+            </div>
+        {% endif %}
+    </div>
+    {% if basics.summary %}
+        <div class="summary">
+            <p>{{ basics.summary|escape|safe|nl2br }}</p>
+        </div>
+    {% endif %}
+    {% if basics.location %}
+        <h3>Location</h3>
+        <section id="location">
+            {% if basics.location.address %}
+                <div class="address">
+                    <strong>Address</strong>
+                    {{ basics.location.address }}
+                </div>
+            {% endif %}
+            {% if basics.location.postalCode %}
+                <div class="postalCode">
+                    <strong>Postal code</strong>
+                    {{ basics.location.postalCode }}
+                </div>
+            {% endif %}
+            {% if basics.location.city %}
+                <div class="city">
+                    <strong>City</strong>
+                    {{ basics.location.city }}
+                </div>
+            {% endif %}
+            {% if basics.location.countryCode %}
+                <div class="countryCode">
+                    <strong>Country code</strong>
+                    {{ basics.location.countryCode }}
+                </div>
+            {% endif %}
+            {% if basics.location.region %}
+                <div class="region">
+                    <strong>Region</strong>
+                    {{ basics.location.region }}
+                </div>
+            {% endif %}
+        </section>
+    {% endif %}
+    {% if basics.profiles %}
+        <h3>Profiles</h3>
+        <section id="profiles">
+            {% for profile in basics.profiles %}
+                <div class="item">
+                    {% if profile.network %}
+                        <strong class="network">
+                            {{ profile.network }}
+                        </strong>
+                    {% endif %}
+                    {% if profile.username %}
+                        <div class="username">
+                            {{ profile.username }}
+                        </div>
+                    {% endif %}
+                    {% if profile.url %}
+                        <div class="url">
+                            <a href="{{ profile.url }}">Link</a>
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </section>
+    {% endif %}
+</section>

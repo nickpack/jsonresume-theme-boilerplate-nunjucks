@@ -1,0 +1,46 @@
+{% if resume.volunteer|length %}
+    <section id="volunteer">
+        <h2>Volunteer</h2>
+        {% for project in resume.volunteer %}
+            <div class="item">
+                {% if project.organisation %}
+                    <h3 class="company">
+                        {{ project.organization }}
+                    </h3>
+                {% endif %}
+                <div class="date">
+                    {% if project.startDate %}
+                        <span class="startDate">{{ project.startDate }}</span>
+                    {% endif %}
+                    {% if project.endDate %}
+                        <span class="endDate">- {{ project.endDate }}</span>
+                    {% else %}
+                        <span class="endDate">- Present</span>
+                    {% endif %}
+                </div>
+                {% if project.position %}
+                    <div class="position">
+                        {{ project.position }}
+                    </div>
+                {% endif %}
+                {% if project.website %}
+                    <div class="website">
+                        <a href="{{ project.website }}">{{ project.website }}</a>
+                    </div>
+                {% endif %}
+                {% if project.summary %}
+                    <div class="summary">
+                        <p>{{ project.summary }}</p>
+                    </div>
+                {% endif %}
+                {% if project.highlights|length %}
+                    <ul class="highlights">
+                        {% for highlight in project.highlights %}
+                            <li>{{ highlight }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </section>
+{% endif %}

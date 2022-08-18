@@ -1,0 +1,29 @@
+{% if resume.awards|length %}
+    <section id="awards">
+        <h2>Awards</h2>
+        {% for award in resume.awards %}
+            <div class="item">
+                {% if award.title %}
+                    <div class="title">
+                        {{ award.title }}
+                    </div>
+                {% endif %}
+                {% if award.date %}
+                    <div class="date">
+                        {{ award.date }}
+                    </div>
+                {% endif %}
+                {% if award.awarder %}
+                    <div class="awarder">
+                        {{ award.awarder }}
+                    </div>
+                {% endif %}
+                {% if award.summary %}
+                    <div class="summary">
+                        <p>{{ award.summary }}</p>
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </section>
+{% endif %}
